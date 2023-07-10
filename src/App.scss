@@ -1,0 +1,13 @@
+@import "/src/variables.scss";
+
+.container {
+    .top {
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 3rem;
+            color: var(--dark-text);
+        }
+    }
+}
