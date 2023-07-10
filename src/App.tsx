@@ -57,7 +57,45 @@ function App() {
             <div className={`container`}>
                 <div className="top">
                     <h1>calc</h1>
-                    <ThemeSwitcher setTheme={setTheme} />
+                    <div className="switcher-container">
+                      <span>THEME</span>
+                      <ThemeSwitcher setTheme={setTheme} />
+                    </div>
+                </div>
+                <div className="screen">
+                    <span className="result">
+                        0
+                    </span>
+                </div>
+                <div className="keyboard">
+                    <div className="row">
+                        <button className="btn btn-normal">7</button>
+                        <button className="btn btn-normal">8</button>
+                        <button className="btn btn-normal">9</button>
+                        <button className="btn btn-delete">DEL</button>
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-normal">4</button>
+                        <button className="btn btn-normal">5</button>
+                        <button className="btn btn-normal">6</button>
+                        <button className="btn btn-normal">+</button>
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-normal">1</button>
+                        <button className="btn btn-normal">2</button>
+                        <button className="btn btn-normal">3</button>
+                        <button className="btn btn-normal">-</button>
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-normal">.</button>
+                        <button className="btn btn-normal">0</button>
+                        <button className="btn btn-normal">/</button>
+                        <button className="btn btn-normal">+</button>
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-reset">RESET</button>
+                        <button className="btn btn-equal">=</button>
+                    </div>
                 </div>
             </div>
     );

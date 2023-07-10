@@ -1,13 +1,82 @@
 @import "/src/variables.scss";
 
 .container {
+    background-color: var(--main-background);
+    padding: 2rem 2rem;
     .top {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        color: var(--main-text);
 
         h1 {
-            font-size: 3rem;
-            color: var(--dark-text);
+            font-size: 2rem;
+            
+        }
+
+        .switcher-container {
+            display: flex;
+            gap: 1rem;
+            font-size: .8rem;
+        }
+    }
+
+    .screen {
+        background-color: var(--screen-background);
+        color: var(--main-text);
+        padding: 1rem;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        text-align: right;
+        margin: 1rem 0;
+    }
+
+    .keyboard {
+        background-color: var(--keyboard-background);
+        padding: 1.5rem;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: .5rem;
+
+            .btn {
+                padding: 0;
+                width: 25%;
+                height: 3rem;
+                border-radius: 6px;
+                border: none;
+                font-size: 1.5rem;
+
+            }
+
+            .btn-normal {
+                background-color: var(--normal-key-background);
+                color: var(--normal-key-text);
+
+            }
+
+            .btn-delete {
+                background-color: var(--del-key-background);
+                color: var(--del-key-text);
+            }
+
+            .btn-equal {
+                background-color: var(--equal-key-background);
+                color: var(--equal-key-text);
+                width: 50%;
+            }
+
+            .btn-reset {
+                background-color: var(--del-key-background);
+                color: var(--del-key-text);
+                width: 50%;
+            }
+
         }
     }
 }
