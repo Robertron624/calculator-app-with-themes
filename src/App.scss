@@ -31,21 +31,82 @@
             align-items: center;
 
             .theme-switcher {
-                background-color: var(--switcher-background);
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: .5rem .3rem;
-                width: 4rem;
-                border-radius: 15px;
 
-                label {
+                .numbers {
                     display: flex;
                     align-items: center;
-                    input {
-                        margin: 0;
+                    justify-content: space-between;
+                    padding: 0rem .3rem;
+                    width: 4rem;
+                }
+
+                .inputs {
+                    background-color: var(--switcher-background);
+                    display: flex;
+                    align-items: center;
+                    // justify-content: space-between;
+                    gap: 1.4rem;
+                    padding: 0rem .3rem;
+                    width: 4rem;
+                    height: 1.5rem;
+                    border-radius: 15px;
+    
+                    label {
+                        display: flex;
+                        align-items: center;
+
+                        position: relative;
+                                            
+
+                        input {
+                            margin: 0;
+
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+
+                            visibility: hidden;
+                            position: absolute;
+                            right: 0;
+
+                            &:checked + i::before {
+                                transform: scale(1);
+                                opacity: 1;
+                            }
+
+                            & + i {
+                                background: transparent;
+                                border:2px solid rgba(0,0,0,0);
+                                position: absolute; 
+                                left: -2px;
+                                top: -4px;
+                                height: 10px;
+                                width: 10px;
+                                border-radius: 100%;
+
+                                &::before {
+                                    content: '';
+                                    display: block;
+                                    height: 12px;
+                                    width: 12px;
+                                    
+                                    border-radius: 100%;
+                                    position: absolute;
+                                    z-index: 1;
+                                    top: -2px;
+                                    left: -1.4px;
+                                    background: var(--switcher-circle);
+                                    transition: all 0.25s ease; /* Todas las propiedades | tiempo | tipo movimiento */
+                                    transform: scale(0) /* Lo reducimos a 0*/ ;
+                                    opacity: 0; /* Lo ocultamos*/
+
+
+                                }
+                            }
+                        }
                     }
                 }
+
             }
         }
     }

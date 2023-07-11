@@ -3,24 +3,42 @@ import "./App.scss";
 
 interface ThemeSwitcherProps {
     setTheme: (theme: string) => void;
+    theme: string;
 }
 
-export function ThemeSwitcher({ setTheme }: ThemeSwitcherProps) {
+export function ThemeSwitcher({ setTheme, theme }: ThemeSwitcherProps) {
     const handleTheme = (e: React.ChangeEvent) => {
-        const { id } = e.target;
+        const {id} = e.target as HTMLInputElement;
         setTheme(id);
+    };
+
+    const handleClick = (e: React.MouseEvent) => {        
+        // check if the click was on the span element
+        if (e.target instanceof HTMLSpanElement) {
+            let id = e.target.id;
+            // delete the -number part
+            id = id.slice(0, -7);
+            setTheme(id);
+        }
     };
 
     return (
         <div className="theme-switcher">
+          <div className="numbers">
+            <span id="theme1-number" onClick={handleClick}>1</span>
+            <span id="theme2-number" onClick={handleClick}>2</span>
+            <span id="theme3-number" onClick={handleClick}>3</span>
+          </div>
+          <div className="inputs">
             <label htmlFor="theme1">
                 <input
                     name="theme"
-                    defaultChecked={true}
                     id="theme1"
                     type="radio"
                     onChange={handleTheme}
+                    checked={theme === "theme1"}
                 />
+                <i></i>
             </label>
             <label htmlFor="theme2">
                 <input
@@ -28,7 +46,9 @@ export function ThemeSwitcher({ setTheme }: ThemeSwitcherProps) {
                     id="theme2"
                     type="radio"
                     onChange={handleTheme}
+                    checked={theme === "theme2"}
                 />
+                <i></i>
             </label>
             <label htmlFor="theme3">
                 <input
@@ -36,8 +56,11 @@ export function ThemeSwitcher({ setTheme }: ThemeSwitcherProps) {
                     id="theme3"
                     type="radio"
                     onChange={handleTheme}
+                    checked={theme === "theme3"}
                 />
+                <i></i>
             </label>
+          </div>
         </div>
     );
 }
@@ -141,7 +164,7 @@ function App() {
                 <h1>calc</h1>
                 <div className="switcher-container">
                     <span>THEME</span>
-                    <ThemeSwitcher setTheme={setTheme} />
+                    <ThemeSwitcher setTheme={setTheme} theme={theme} />
                 </div>
             </div>
             <div className="screen">
@@ -261,7 +284,7 @@ function App() {
                         id="x"
                         className="btn btn-normal"
                     >
-                        X
+                        x
                     </button>
                 </div>
                 <div className="row">

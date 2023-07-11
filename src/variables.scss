@@ -96,6 +96,7 @@ body[data-theme="theme1"] {
     --main-text: hsl(0, 0%, 100%);
 
     --switcher-background: hsl(223, 31%, 20%);
+    --switcher-circle: hsl(6, 63%, 50%);
 }
 
 body[data-theme="theme2"] {
@@ -113,6 +114,7 @@ body[data-theme="theme2"] {
     --light-text: hsl(0, 0%, 100%);
 
     --switcher-background: hsl(0, 5%, 81%);
+    --switcher-circle: hsl(25, 98%, 40%);
 }
 
 body[data-theme="theme3"] {
@@ -130,4 +132,5 @@ body[data-theme="theme3"] {
     --light-text: hsl(198, 20%, 13%);
 
     --switcher-background: hsl(268, 71%, 12%);
+    --switcher-circle: hsl(176, 100%, 44%);
 }
