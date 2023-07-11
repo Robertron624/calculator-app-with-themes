@@ -7,27 +7,27 @@ interface ThemeSwitcherProps {
 }
 
 export function ThemeSwitcher({ setTheme, theme }: ThemeSwitcherProps) {
-    const handleTheme = (e: React.ChangeEvent) => {
-        const {id} = e.target as HTMLInputElement;
-        setTheme(id);
-    };
+    const handleTheme = (e: React.ChangeEvent | React.MouseEvent) => {
+        let id;
 
-    const handleClick = (e: React.MouseEvent) => {        
-        // check if the click was on the span element
-        if (e.target instanceof HTMLSpanElement) {
-            let id = e.target.id;
-            // delete the -number part
-            id = id.slice(0, -7);
-            setTheme(id);
+        if (e.target instanceof HTMLButtonElement) {
+          let id = e.target.id;
+          // delete the -number part
+          id = id.slice(0, -7);
+          setTheme(id);
+        }
+        else if (e.target instanceof HTMLInputElement) {
+          id = e.target.id;
+          setTheme(id);
         }
     };
 
     return (
         <div className="theme-switcher">
           <div className="numbers">
-            <span id="theme1-number" onClick={handleClick}>1</span>
-            <span id="theme2-number" onClick={handleClick}>2</span>
-            <span id="theme3-number" onClick={handleClick}>3</span>
+            <button id="theme1-number" onClick={handleTheme}>1</button>
+            <button id="theme2-number" onClick={handleTheme}>2</button>
+            <button id="theme3-number" onClick={handleTheme}>3</button>
           </div>
           <div className="inputs">
             <label htmlFor="theme1">
