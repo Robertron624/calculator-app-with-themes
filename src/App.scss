@@ -54,7 +54,6 @@
                     background-color: var(--switcher-background);
                     display: flex;
                     align-items: center;
-                    // justify-content: space-between;
                     gap: 1.4rem;
                     padding: 0rem .3rem;
                     width: 4rem;
@@ -64,17 +63,13 @@
                     label {
                         display: flex;
                         align-items: center;
-
                         position: relative;
                                             
-
                         input {
                             margin: 0;
-
                             appearance: none;
                             -webkit-appearance: none;
                             -moz-appearance: none;
-
                             visibility: hidden;
                             position: absolute;
                             right: 0;
@@ -84,12 +79,16 @@
                                 opacity: 1;
                             }
 
+                            &:hover + i::before {
+                                background: var(--equal-key-hover);
+                            }
+
                             & + i {
                                 background: transparent;
                                 border:2px solid rgba(0,0,0,0);
                                 position: absolute; 
                                 left: -2px;
-                                top: -4px;
+                                top: -6px;
                                 height: 10px;
                                 width: 10px;
                                 border-radius: 100%;
@@ -99,7 +98,6 @@
                                     display: block;
                                     height: 12px;
                                     width: 12px;
-                                    
                                     border-radius: 100%;
                                     position: absolute;
                                     z-index: 1;
@@ -109,14 +107,11 @@
                                     transition: all 0.25s ease; /* Todas las propiedades | tiempo | tipo movimiento */
                                     transform: scale(0) /* Lo reducimos a 0*/ ;
                                     opacity: 0; /* Lo ocultamos*/
-
-
                                 }
                             }
                         }
                     }
                 }
-
             }
         }
     }
@@ -169,29 +164,45 @@
                 border: none;
                 font-size: 1.5rem;
                 cursor: pointer;
+                transition: all .2s ease-in-out;
             }
 
             .btn-normal {
                 background-color: var(--normal-key-background);
                 color: var(--normal-key-text);
-
+                
+                &:hover {
+                    background-color: var(--normal-key-hover);
+                }
             }
 
             .btn-delete {
                 background-color: var(--del-key-background);
                 color: var(--del-key-text);
+
+                &:hover {
+                    background-color: var(--del-key-hover);
+                }
             }
 
             .btn-equal {
                 background-color: var(--equal-key-background);
                 color: var(--equal-key-text);
                 width: 50%;
+
+                &:hover {
+                    background-color: var(--equal-key-hover);
+                }
             }
 
             .btn-reset {
                 background-color: var(--del-key-background);
                 color: var(--del-key-text);
                 width: 50%;
+
+                &:hover {
+                    background-color: var(--del-key-hover);
+                }
             }
 
         }

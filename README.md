@@ -56,10 +56,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Saas](https://sass-lang.com/) - For styles
+- [Typescript](https://www.typescriptlang.org/) - For type checking
 
 ### What I learned
 
@@ -95,7 +93,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [An Easy Way to Add Multiple Themes in a React App](https://javascript.plainenglish.io/easy-way-to-add-multiple-themes-in-react-app-ff45eeca67cb) - This helped me for adding multiple themes in my app. It works without the needing of a preproccesor like sass.
 
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Personalizar un radio button con CSS](https://www.antofernandez.com/personalizar-radio-buttons-css/) - This is an amazing article to understand how to customize radio buttons with CSS.
 
 
 ## Author

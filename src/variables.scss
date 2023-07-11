@@ -97,6 +97,11 @@ body[data-theme="theme1"] {
 
     --switcher-background: hsl(223, 31%, 20%);
     --switcher-circle: hsl(6, 63%, 50%);
+
+    --normal-key-hover: hsl(0, 0%, 100%);
+    --del-key-hover: hsl(224, 51%, 76%);
+
+    --equal-key-hover: hsl(6, 93%, 67%);
 }
 
 body[data-theme="theme2"] {
@@ -115,6 +120,12 @@ body[data-theme="theme2"] {
 
     --switcher-background: hsl(0, 5%, 81%);
     --switcher-circle: hsl(25, 98%, 40%);
+
+    --normal-key-hover: hsl(0, 0%, 100%);
+    --del-key-hover: hsl(185, 41%, 56%);
+
+    --equal-key-hover: hsl(25, 100%, 61%);
+
 }
 
 body[data-theme="theme3"] {
@@ -133,4 +144,9 @@ body[data-theme="theme3"] {
 
     --switcher-background: hsl(268, 71%, 12%);
     --switcher-circle: hsl(176, 100%, 44%);
+
+    --normal-key-hover: hsl(268, 54%, 44%);
+    --del-key-hover: hsl(280, 56%, 44%);
+
+    --equal-key-hover: hsl(177, 100%, 79%);
 }
