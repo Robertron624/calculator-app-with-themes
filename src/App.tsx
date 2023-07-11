@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.scss";
 
-
 interface ThemeSwitcherProps {
     setTheme: (theme: string) => void;
 }
 
-export function ThemeSwitcher({ setTheme}: ThemeSwitcherProps) {
-
-
+export function ThemeSwitcher({ setTheme }: ThemeSwitcherProps) {
     const handleTheme = (e: React.ChangeEvent) => {
         const { id } = e.target;
         setTheme(id);
@@ -79,29 +76,38 @@ function App() {
     };
 
     const handleEqual = () => {
+        if (!firstNumber || !secondNumber || !operation) return;
 
-        if(!firstNumber || !secondNumber || !operation) return;
-
-        const first = Number(firstNumber)
+        const first = Number(firstNumber);
         const second = Number(secondNumber);
+
+        let result = 0;
 
         switch (operation) {
             case "+":
-                setResult((first + second).toString());
+                result = first + second;
                 break;
             case "-":
-                setResult((first - second).toString());
+                result = first - second;
                 break;
-            case "*":
-                setResult((first * second).toString());
+            case "x":
+                result = first * second;
                 break;
             case "/":
-                setResult((first / second).toString());
+                result = first / second;
                 break;
             default:
                 break;
         }
 
+        // limit to 3 decimal places after the dot
+        if (result.toString().includes(".")) {
+            const [integer, decimal] = result.toString().split(".");
+            result = Number(`${integer}.${decimal.slice(0, 3)}`);
+        }
+
+        setResult(result.toString());
+        setScreen(result.toString());
     };
 
     const handleNumber = (e: React.MouseEvent) => {
@@ -125,57 +131,149 @@ function App() {
         setScreen(id);
     };
 
-
     useEffect(() => {
         document.body.setAttribute("data-theme", theme);
     }, [theme]);
 
-
     return (
-            <div className={`container`}>
-                <div className="top">
-                    <h1>calc</h1>
-                    <div className="switcher-container">
-                      <span>THEME</span>
-                      <ThemeSwitcher setTheme={setTheme} />
-                    </div>
-                </div>
-                <div className="screen">
-                    <span className="result">
-                        {screen}
-                    </span>
-                </div>
-                <div className="keyboard">
-                    <div className="row">
-                        <button onClick={handleNumber} id="7" className="btn btn-normal">7</button>
-                        <button onClick={handleNumber} id="8" className="btn btn-normal">8</button>
-                        <button onClick={handleNumber} id="9" className="btn btn-normal">9</button>
-                        <button onClick={handleDelete} className="btn btn-delete">DEL</button>
-                    </div>
-                    <div className="row">
-                        <button onClick={handleNumber} id="4" className="btn btn-normal">4</button>
-                        <button onClick={handleNumber} id="5" className="btn btn-normal">5</button>
-                        <button onClick={handleNumber} id="6" className="btn btn-normal">6</button>
-                        <button onClick={handleOperation} id="+"  className="btn btn-normal">+</button>
-                    </div>
-                    <div className="row">
-                        <button onClick={handleNumber} id="1" className="btn btn-normal">1</button>
-                        <button onClick={handleNumber} id="2" className="btn btn-normal">2</button>
-                        <button onClick={handleNumber} id="3" className="btn btn-normal">3</button>
-                        <button onClick={handleOperation} id="-" className="btn btn-normal">-</button>
-                    </div>
-                    <div className="row">
-                        <button className="btn btn-normal">.</button>
-                        <button onClick={handleNumber} className="btn btn-normal">0</button>
-                        <button onClick={handleOperation} id="/" className="btn btn-normal">/</button>
-                        <button onClick={handleOperation} id="x" className="btn btn-normal">X</button>
-                    </div>
-                    <div className="row">
-                        <button onClick={handleReset} className="btn btn-reset">RESET</button>
-                        <button onClick={handleEqual} className="btn btn-equal">=</button>
-                    </div>
+        <div className={`container`}>
+            <div className="top">
+                <h1>calc</h1>
+                <div className="switcher-container">
+                    <span>THEME</span>
+                    <ThemeSwitcher setTheme={setTheme} />
                 </div>
             </div>
+            <div className="screen">
+                <span className="result">{screen}</span>
+            </div>
+            <div className="keyboard">
+                <div className="row">
+                    <button
+                        onClick={handleNumber}
+                        id="7"
+                        className="btn btn-normal"
+                    >
+                        7
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="8"
+                        className="btn btn-normal"
+                    >
+                        8
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="9"
+                        className="btn btn-normal"
+                    >
+                        9
+                    </button>
+                    <button onClick={handleDelete} className="btn btn-delete">
+                        DEL
+                    </button>
+                </div>
+                <div className="row">
+                    <button
+                        onClick={handleNumber}
+                        id="4"
+                        className="btn btn-normal"
+                    >
+                        4
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="5"
+                        className="btn btn-normal"
+                    >
+                        5
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="6"
+                        className="btn btn-normal"
+                    >
+                        6
+                    </button>
+                    <button
+                        onClick={handleOperation}
+                        id="+"
+                        className="btn btn-normal"
+                    >
+                        +
+                    </button>
+                </div>
+                <div className="row">
+                    <button
+                        onClick={handleNumber}
+                        id="1"
+                        className="btn btn-normal"
+                    >
+                        1
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="2"
+                        className="btn btn-normal"
+                    >
+                        2
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="3"
+                        className="btn btn-normal"
+                    >
+                        3
+                    </button>
+                    <button
+                        onClick={handleOperation}
+                        id="-"
+                        className="btn btn-normal"
+                    >
+                        -
+                    </button>
+                </div>
+                <div className="row">
+                    <button
+                        onClick={handleNumber}
+                        id="."
+                        className="btn btn-normal"
+                    >
+                        .
+                    </button>
+                    <button
+                        onClick={handleNumber}
+                        id="0"
+                        className="btn btn-normal"
+                    >
+                        0
+                    </button>
+                    <button
+                        onClick={handleOperation}
+                        id="/"
+                        className="btn btn-normal"
+                    >
+                        /
+                    </button>
+                    <button
+                        onClick={handleOperation}
+                        id="x"
+                        className="btn btn-normal"
+                    >
+                        X
+                    </button>
+                </div>
+                <div className="row">
+                    <button onClick={handleReset} className="btn btn-reset">
+                        RESET
+                    </button>
+                    <button onClick={handleEqual} className="btn btn-equal">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
     );
 }
 
