@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 -   Solution URL: [Github repo](https://github.com/Robertron624/calculator-app-with-themes)
--   Live Site URL: [Netlify Site](https://github.com/Robertron624/calculator-app-with-themes)
+-   Live Site URL: [Netlify Site](https://vocal-mermaid-4a338b.netlify.app/)
 
 ## My process
 
